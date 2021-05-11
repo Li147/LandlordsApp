@@ -1,4 +1,5 @@
 package com.example.landlords
 
-class Card {
+data class Card(val rank: String, val suit: String) {
+
 }
