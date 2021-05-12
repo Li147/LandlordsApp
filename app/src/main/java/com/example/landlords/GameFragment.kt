@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.landlords.databinding.GameFragmentBinding
 
@@ -27,8 +28,14 @@ class GameFragment : Fragment() {
     // populate the views now that the layout has been inflated
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val model: GameFragmentViewModel by viewModels()
+
         val binding = GameFragmentBinding.bind(view)
         gameFragmentBinding = binding
+
+
+
 
         val recyclerViewMain = binding.rvPlayerHandMain
         val recyclerViewLeft= binding.rvPlayerHandLeft
@@ -43,10 +50,10 @@ class GameFragment : Fragment() {
         recyclerViewRight.layoutManager = linearLayoutManagerRight
 
         val deck = CardDeck()
-        val hand = deck.generateFakeHand()
+        val hands = deck.generateHand()
 
-        recyclerViewMain.adapter = RecyclerAdapter(hand)
-        recyclerViewLeft.adapter = RecyclerAdapter(hand)
-        recyclerViewRight.adapter = RecyclerAdapter(hand)
+        recyclerViewMain.adapter = RecyclerAdapter(hands[0])
+        recyclerViewLeft.adapter = RecyclerAdapter(hands[1])
+        recyclerViewRight.adapter = RecyclerAdapter(hands[2])
     }
 }

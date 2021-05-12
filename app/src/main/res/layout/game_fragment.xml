@@ -24,9 +24,23 @@
         android:scrollbars="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:itemCount="13"
         tools:listitem="@layout/rv_card"
         tools:orientation="vertical" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_player_hand_main"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="true"
+        android:isScrollContainer="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/rv_player_hand_left"
+        app:layout_constraintEnd_toStartOf="@id/rv_player_hand_right"
+        tools:itemCount="13"
+        tools:listitem="@layout/rv_card"
+        tools:orientation="horizontal" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_player_hand_right"
@@ -41,16 +55,6 @@
         tools:orientation="vertical" />
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_player_hand_main"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:nestedScrollingEnabled="false"
-        android:isScrollContainer="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:itemCount="13"
-        tools:layout_editor_absoluteX="362dp"
-        tools:listitem="@layout/rv_card"
-        tools:orientation="horizontal" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
