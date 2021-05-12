@@ -12,10 +12,13 @@ import com.example.landlords.databinding.GameFragmentBinding
 class GameFragment : Fragment() {
 
     private var gameFragmentBinding: GameFragmentBinding? = null
+    private val vm: GameFragmentViewModel by viewModels()
 
     private lateinit var linearLayoutManagerMain: LinearLayoutManager
     private lateinit var linearLayoutManagerLeft: LinearLayoutManager
     private lateinit var linearLayoutManagerRight: LinearLayoutManager
+
+    var cardState: Int = 1
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,31 +32,26 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val model: GameFragmentViewModel by viewModels()
-
         val binding = GameFragmentBinding.bind(view)
         gameFragmentBinding = binding
 
+        binding.testCard.setOnClickListener { view ->
+            view.animate().apply {
+                if (cardState == 1) {
+                    duration = 100
+                    translationY(-100F)
+                    cardState = 0
+                } else {
+                    duration = 100
+                    translationY(0F)
+                    cardState = 1
+                }
+            }
+        }
 
-
-
-        val recyclerViewMain = binding.rvPlayerHandMain
-        val recyclerViewLeft= binding.rvPlayerHandLeft
-        val recyclerViewRight = binding.rvPlayerHandRight
-
-        linearLayoutManagerMain = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        linearLayoutManagerLeft = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        linearLayoutManagerRight = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-
-        recyclerViewMain.layoutManager = linearLayoutManagerMain
-        recyclerViewLeft.layoutManager = linearLayoutManagerLeft
-        recyclerViewRight.layoutManager = linearLayoutManagerRight
 
         val deck = CardDeck()
         val hands = deck.generateHand()
 
-        recyclerViewMain.adapter = RecyclerAdapter(hands[0])
-        recyclerViewLeft.adapter = RecyclerAdapter(hands[1])
-        recyclerViewRight.adapter = RecyclerAdapter(hands[2])
     }
 }
