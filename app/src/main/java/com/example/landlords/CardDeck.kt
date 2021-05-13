@@ -3,65 +3,65 @@ package com.example.landlords
 class CardDeck {
 
     val deckOfCardsMap = mapOf(
-        1 to Card("A", "C"),
-        2 to Card("2", "C"),
-        3 to Card("3", "C"),
-        4 to Card("4", "C"),
-        5 to Card("5", "C"),
-        6 to Card("6", "C"),
-        7 to Card("7", "C"),
-        8 to Card("8", "C"),
-        9 to Card("9", "C"),
-        10 to Card("10", "C"),
-        11 to Card("J", "C"),
-        12 to Card("Q", "C"),
-        13 to Card("K", "C"),
-        14 to Card("A", "D"),
-        15 to Card("2", "D"),
-        16 to Card("3", "D"),
-        17 to Card("4", "D"),
-        18 to Card("5", "D"),
-        19 to Card("6", "D"),
-        20 to Card("7", "D"),
-        21 to Card("8", "D"),
-        22 to Card("9", "D"),
-        23 to Card("10", "D"),
-        24 to Card("J", "D"),
-        25 to Card("Q", "D"),
-        26 to Card("K", "D"),
-        27 to Card("A", "H"),
-        28 to Card("2", "H"),
-        29 to Card("3", "H"),
-        30 to Card("4", "H"),
-        31 to Card("5", "H"),
-        32 to Card("6", "H"),
-        33 to Card("7", "H"),
-        34 to Card("8", "H"),
-        35 to Card("9", "H"),
-        36 to Card("10", "H"),
-        37 to Card("J", "H"),
-        38 to Card("Q", "H"),
-        39 to Card("K", "H"),
-        40 to Card("A", "S"),
-        41 to Card("2", "S"),
-        42 to Card("3", "S"),
-        43 to Card("4", "S"),
-        44 to Card("5", "S"),
-        45 to Card("6", "S"),
-        46 to Card("7", "S"),
-        47 to Card("8", "S"),
-        48 to Card("9", "S"),
-        49 to Card("10", "S"),
-        50 to Card("J", "S"),
-        51 to Card("Q", "S"),
-        52 to Card("K", "S"),
-        53 to Card("Small", "Blck"),
-        54 to Card("Big", "Red"),
+        1 to CardDataModel(1,"A", "C"),
+        2 to CardDataModel(2,"2", "C"),
+        3 to CardDataModel(3,"3", "C"),
+        4 to CardDataModel(4,"4", "C"),
+        5 to CardDataModel(4,"5", "C"),
+        6 to CardDataModel(4,"6", "C"),
+        7 to CardDataModel(4,"7", "C"),
+        8 to CardDataModel(4,"8", "C"),
+        9 to CardDataModel(4,"9", "C"),
+        10 to CardDataModel(4,"10", "C"),
+        11 to CardDataModel(4,"J", "C"),
+        12 to CardDataModel(4,"Q", "C"),
+        13 to CardDataModel(4,"K", "C"),
+        14 to CardDataModel(4,"A", "D"),
+        15 to CardDataModel(4,"2", "D"),
+        16 to CardDataModel(4,"3", "D"),
+        17 to CardDataModel(4,"4", "D"),
+        18 to CardDataModel(4,"5", "D"),
+        19 to CardDataModel(4,"6", "D"),
+        20 to CardDataModel(4,"7", "D"),
+        21 to CardDataModel(4,"8", "D"),
+        22 to CardDataModel(4,"9", "D"),
+        23 to CardDataModel(4,"10", "D"),
+        24 to CardDataModel(4,"J", "D"),
+        25 to CardDataModel(4,"Q", "D"),
+        26 to CardDataModel(4,"K", "D"),
+        27 to CardDataModel(4,"A", "H"),
+        28 to CardDataModel(4,"2", "H"),
+        29 to CardDataModel(4,"3", "H"),
+        30 to CardDataModel(4,"4", "H"),
+        31 to CardDataModel(4,"5", "H"),
+        32 to CardDataModel(4,"6", "H"),
+        33 to CardDataModel(4,"7", "H"),
+        34 to CardDataModel(4,"8", "H"),
+        35 to CardDataModel(4,"9", "H"),
+        36 to CardDataModel(4,"10", "H"),
+        37 to CardDataModel(4,"J", "H"),
+        38 to CardDataModel(4,"Q", "H"),
+        39 to CardDataModel(4,"K", "H"),
+        40 to CardDataModel(4,"A", "S"),
+        41 to CardDataModel(4,"2", "S"),
+        42 to CardDataModel(4,"3", "S"),
+        43 to CardDataModel(4,"4", "S"),
+        44 to CardDataModel(4,"5", "S"),
+        45 to CardDataModel(4,"6", "S"),
+        46 to CardDataModel(4,"7", "S"),
+        47 to CardDataModel(4,"8", "S"),
+        48 to CardDataModel(4,"9", "S"),
+        49 to CardDataModel(4,"10", "S"),
+        50 to CardDataModel(4,"J", "S"),
+        51 to CardDataModel(4,"Q", "S"),
+        52 to CardDataModel(4,"K", "S"),
+        53 to CardDataModel(4,"Small", "Blck"),
+        54 to CardDataModel(4,"Big", "Red"),
 
     )
 
     // returns 3 lists of hands
-    fun generateHand(): List<MutableList<Card>> {
+    fun generateHand(): List<MutableList<CardDataModel>> {
         val shuffledList = mutableListOf(
             1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
             14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
@@ -89,8 +89,8 @@ class CardDeck {
         return hands
     }
 
-    fun mapIntsToCards(list: List<Int>): MutableList<Card> {
-        val myHand = mutableListOf<Card>()
+    fun mapIntsToCards(list: List<Int>): MutableList<CardDataModel> {
+        val myHand = mutableListOf<CardDataModel>()
         val intsIterator = list.listIterator()
 
         while (intsIterator.hasNext()) {
@@ -104,21 +104,21 @@ class CardDeck {
         return myHand
     }
 
-    fun generateFakeHand(): List<Card> {
-        return listOf(
-            Card("K", "H"),
-            Card("Q", "S"),
-            Card("J", "D"),
-            Card("10", "D"),
-            Card("9", "D"),
-            Card("8", "D"),
-            Card("7", "D"),
-            Card("6", "D"),
-            Card("5", "D"),
-            Card("4", "D"),
-            Card("3", "D"),
-            Card("2", "D"),
-            Card("A", "D"),
-        )
-    }
+//    fun generateFakeHand(): List<CardDataModel> {
+//        return listOf(
+//            CardDataModel("K", "H"),
+//            CardDataModel("Q", "S"),
+//            CardDataModel("J", "D"),
+//            CardDataModel("10", "D"),
+//            CardDataModel("9", "D"),
+//            CardDataModel("8", "D"),
+//            CardDataModel("7", "D"),
+//            CardDataModel("6", "D"),
+//            CardDataModel("5", "D"),
+//            CardDataModel("4", "D"),
+//            CardDataModel("3", "D"),
+//            CardDataModel("2", "D"),
+//            CardDataModel("A", "D"),
+//        )
+//    }
 }
