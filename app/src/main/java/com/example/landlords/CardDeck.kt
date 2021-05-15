@@ -3,65 +3,65 @@ package com.example.landlords
 class CardDeck {
 
     val deckOfCardsMap = mapOf(
-        1 to CardDataModel(1,"A", "C"),
-        2 to CardDataModel(2,"2", "C"),
-        3 to CardDataModel(3,"3", "C"),
-        4 to CardDataModel(4,"4", "C"),
-        5 to CardDataModel(4,"5", "C"),
-        6 to CardDataModel(4,"6", "C"),
-        7 to CardDataModel(4,"7", "C"),
-        8 to CardDataModel(4,"8", "C"),
-        9 to CardDataModel(4,"9", "C"),
-        10 to CardDataModel(4,"10", "C"),
-        11 to CardDataModel(4,"J", "C"),
-        12 to CardDataModel(4,"Q", "C"),
-        13 to CardDataModel(4,"K", "C"),
-        14 to CardDataModel(4,"A", "D"),
-        15 to CardDataModel(4,"2", "D"),
-        16 to CardDataModel(4,"3", "D"),
-        17 to CardDataModel(4,"4", "D"),
-        18 to CardDataModel(4,"5", "D"),
-        19 to CardDataModel(4,"6", "D"),
-        20 to CardDataModel(4,"7", "D"),
-        21 to CardDataModel(4,"8", "D"),
-        22 to CardDataModel(4,"9", "D"),
-        23 to CardDataModel(4,"10", "D"),
-        24 to CardDataModel(4,"J", "D"),
-        25 to CardDataModel(4,"Q", "D"),
-        26 to CardDataModel(4,"K", "D"),
-        27 to CardDataModel(4,"A", "H"),
-        28 to CardDataModel(4,"2", "H"),
-        29 to CardDataModel(4,"3", "H"),
-        30 to CardDataModel(4,"4", "H"),
-        31 to CardDataModel(4,"5", "H"),
-        32 to CardDataModel(4,"6", "H"),
-        33 to CardDataModel(4,"7", "H"),
-        34 to CardDataModel(4,"8", "H"),
-        35 to CardDataModel(4,"9", "H"),
-        36 to CardDataModel(4,"10", "H"),
-        37 to CardDataModel(4,"J", "H"),
-        38 to CardDataModel(4,"Q", "H"),
-        39 to CardDataModel(4,"K", "H"),
-        40 to CardDataModel(4,"A", "S"),
-        41 to CardDataModel(4,"2", "S"),
-        42 to CardDataModel(4,"3", "S"),
-        43 to CardDataModel(4,"4", "S"),
-        44 to CardDataModel(4,"5", "S"),
-        45 to CardDataModel(4,"6", "S"),
-        46 to CardDataModel(4,"7", "S"),
-        47 to CardDataModel(4,"8", "S"),
-        48 to CardDataModel(4,"9", "S"),
-        49 to CardDataModel(4,"10", "S"),
-        50 to CardDataModel(4,"J", "S"),
-        51 to CardDataModel(4,"Q", "S"),
-        52 to CardDataModel(4,"K", "S"),
-        53 to CardDataModel(4,"Small", "Blck"),
-        54 to CardDataModel(4,"Big", "Red"),
+        1 to CardDataModel(1,"A", "C", R.drawable.card_ac),
+        2 to CardDataModel(2,"2", "C", R.drawable.card_2c),
+        3 to CardDataModel(3,"3", "C", R.drawable.card_3c),
+        4 to CardDataModel(4,"4", "C", R.drawable.card_4c),
+        5 to CardDataModel(4,"5", "C", R.drawable.card_5c),
+        6 to CardDataModel(4,"6", "C", R.drawable.card_6c),
+        7 to CardDataModel(4,"7", "C", R.drawable.card_7c),
+        8 to CardDataModel(4,"8", "C", R.drawable.card_8c),
+        9 to CardDataModel(4,"9", "C", R.drawable.card_9c),
+        10 to CardDataModel(4,"10", "C", R.drawable.card_10c),
+        11 to CardDataModel(4,"J", "C", R.drawable.card_jc),
+        12 to CardDataModel(4,"Q", "C", R.drawable.card_qc),
+        13 to CardDataModel(4,"K", "C", R.drawable.card_kc),
+        14 to CardDataModel(4,"A", "D", R.drawable.card_ad),
+        15 to CardDataModel(4,"2", "D", R.drawable.card_2d),
+        16 to CardDataModel(4,"3", "D", R.drawable.card_3d),
+        17 to CardDataModel(4,"4", "D", R.drawable.card_4d),
+        18 to CardDataModel(4,"5", "D", R.drawable.card_5d),
+        19 to CardDataModel(4,"6", "D", R.drawable.card_6d),
+        20 to CardDataModel(4,"7", "D", R.drawable.card_7d),
+        21 to CardDataModel(4,"8", "D", R.drawable.card_8d),
+        22 to CardDataModel(4,"9", "D", R.drawable.card_ac),
+        23 to CardDataModel(4,"10", "D", R.drawable.card_10d),
+        24 to CardDataModel(4,"J", "D", R.drawable.card_jd),
+        25 to CardDataModel(4,"Q", "D", R.drawable.card_qd),
+        26 to CardDataModel(4,"K", "D", R.drawable.card_kd),
+        27 to CardDataModel(4,"A", "H", R.drawable.card_ah),
+        28 to CardDataModel(4,"2", "H", R.drawable.card_2h),
+        29 to CardDataModel(4,"3", "H", R.drawable.card_3h),
+        30 to CardDataModel(4,"4", "H", R.drawable.card_4h),
+        31 to CardDataModel(4,"5", "H", R.drawable.card_5h),
+        32 to CardDataModel(4,"6", "H", R.drawable.card_6h),
+        33 to CardDataModel(4,"7", "H", R.drawable.card_7h),
+        34 to CardDataModel(4,"8", "H", R.drawable.card_8h),
+        35 to CardDataModel(4,"9", "H", R.drawable.card_9h),
+        36 to CardDataModel(4,"10", "H", R.drawable.card_10h),
+        37 to CardDataModel(4,"J", "H", R.drawable.card_jh),
+        38 to CardDataModel(4,"Q", "H", R.drawable.card_qh),
+        39 to CardDataModel(4,"K", "H", R.drawable.card_kh),
+        40 to CardDataModel(4,"A", "S", R.drawable.card_as),
+        41 to CardDataModel(4,"2", "S", R.drawable.card_2s),
+        42 to CardDataModel(4,"3", "S", R.drawable.card_3s),
+        43 to CardDataModel(4,"4", "S", R.drawable.card_4s),
+        44 to CardDataModel(4,"5", "S", R.drawable.card_5s),
+        45 to CardDataModel(4,"6", "S", R.drawable.card_6s),
+        46 to CardDataModel(4,"7", "S", R.drawable.card_7s),
+        47 to CardDataModel(4,"8", "S", R.drawable.card_8s),
+        48 to CardDataModel(4,"9", "S", R.drawable.card_9s),
+        49 to CardDataModel(4,"10", "S", R.drawable.card_10s),
+        50 to CardDataModel(4,"J", "S", R.drawable.card_js),
+        51 to CardDataModel(4,"Q", "S", R.drawable.card_qs),
+        52 to CardDataModel(4,"K", "S", R.drawable.card_ks),
+        53 to CardDataModel(4,"Small", "Blck", R.drawable.back_yellow),
+        54 to CardDataModel(4,"Big", "Red", R.drawable.back_red),
 
     )
 
     // returns 3 lists of hands
-    fun generateHand(): List<MutableList<CardDataModel>> {
+    fun generateHand(): List<List<Int>> {
         val shuffledList = mutableListOf(
             1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
             14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
@@ -80,13 +80,11 @@ class CardDeck {
             (index in 35..51)
         }
 
-        var hand1 = mapIntsToCards(intList1)
-        var hand2 = mapIntsToCards(intList2)
-        var hand3 = mapIntsToCards(intList3)
+//        var hand1 = mapIntsToCards(intList1)
+//        var hand2 = mapIntsToCards(intList2)
+//        var hand3 = mapIntsToCards(intList3)
 
-        var hands = listOf(hand1, hand2, hand3)
-
-        return hands
+        return listOf(intList1, intList1, intList1)
     }
 
     fun mapIntsToCards(list: List<Int>): MutableList<CardDataModel> {

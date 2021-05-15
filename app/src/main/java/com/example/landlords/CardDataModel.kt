@@ -4,5 +4,7 @@ package com.example.landlords
 data class CardDataModel(
     val id: Int,
     val rank: String,
-    val suit: String) {
+    val suit: String,
+    val imgResId: Int,
+    ) {
 }

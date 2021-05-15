@@ -1,15 +1,14 @@
 package com.example.landlords
 
-import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.landlords.databinding.GameFragmentBinding
 
 class GameFragment : Fragment() {
@@ -24,7 +23,10 @@ class GameFragment : Fragment() {
     var cardState: Int = 1
 
     private val animationListener = View.OnClickListener { view ->
+        cardClickedEvent(view)
+
         view.animate().apply {
+            view.id
             if (cardState == 1) {
                 duration = 100
                 translationY(-100F)
@@ -35,12 +37,12 @@ class GameFragment : Fragment() {
                 cardState = 1
             }
         }
+
     }
 
     private val gameListener = View.OnClickListener { view ->
         view.tag
     }
-
 
 
     override fun onCreateView(
@@ -74,9 +76,6 @@ class GameFragment : Fragment() {
         vm.setSelectedArr(vm.isCardSelectedArr)
         setVisibilityObservers()
 
-
-        val deck = CardDeck()
-        val hands = deck.generateHand()
     }
 
     private fun setupClickListeners() {
@@ -93,18 +92,51 @@ class GameFragment : Fragment() {
     }
 
     private fun addImageUpdateObserverToCards() {
-        vm.getHand().observe(viewLifecycleOwner, { myArray ->
-            gameFragmentBinding.card1.setImageResource(vm.getCorrectImageResourceIdFromCardId(myArray[1]))
-            gameFragmentBinding.card5.setImageResource(vm.getCorrectImageResourceIdFromCardId(myArray[4]))
+        vm.getMainHand().observe(viewLifecycleOwner, { mainHandLiveData ->
+            gameFragmentBinding.card1.setImageResource(vm.getCorrectImageResourceIdFromCardId(mainHandLiveData[0]))
+            gameFragmentBinding.card2.setImageResource(vm.getCorrectImageResourceIdFromCardId(mainHandLiveData[1]))
+            gameFragmentBinding.card3.setImageResource(vm.getCorrectImageResourceIdFromCardId(mainHandLiveData[2]))
+            gameFragmentBinding.card4.setImageResource(vm.getCorrectImageResourceIdFromCardId(mainHandLiveData[3]))
+            gameFragmentBinding.card5.setImageResource(vm.getCorrectImageResourceIdFromCardId(mainHandLiveData[4]))
         })
     }
 
     private fun setVisibilityObservers() {
         vm.getIsCardSelectedArr().observe(viewLifecycleOwner, { arr ->
-            gameFragmentBinding.card1.visibility = View.INVISIBLE
+            if (vm.isCardSelectedArr[0]) gameFragmentBinding.card1.visibility = View.VISIBLE
+            if (vm.isCardSelectedArr[1]) gameFragmentBinding.card2.visibility = View.VISIBLE
+            if (vm.isCardSelectedArr[2]) gameFragmentBinding.card3.visibility = View.VISIBLE
         })
     }
 
+  fun cardClickedEvent(view: View) {
+      val cardSelected = view as ImageView
+      when (cardSelected.id){
+          gameFragmentBinding.card1.id ->{
+              val cardSelected = !vm.isCardSelectedArr[0]
+              vm.isCardSelectedArr[0] = cardSelected
+              // add or removed card from play
+              if (cardSelected){
+                  vm.cardsToBePlayed.add(77)
+              }
+              else {
+                  vm.cardsToBePlayed.remove(77)
+              }
 
+          }
+          gameFragmentBinding.card2.id ->{
+              vm.isCardSelectedArr[1] = true
+              vm.cardsToBePlayed.add(76)
+          }
+          gameFragmentBinding.card3.id ->{
+              vm.isCardSelectedArr[2] = true
+              vm.cardsToBePlayed.add(3)
+          }
+      }
+      vm.setSelectedArr(vm.isCardSelectedArr)
+      Log.d("current hand", vm.cardsToBePlayed.toString())
+      Log.d("tag", "card clicked event")
+
+  }
 
 }

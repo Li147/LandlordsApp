@@ -6,10 +6,12 @@ import androidx.lifecycle.ViewModel
 
 class GameFragmentViewModel : ViewModel() {
 
+    private val cardDeck : CardDeck = CardDeck()
+
     private val mainHandLiveData = MutableLiveData<Array<Int>>()
     private val mainHand = Array<Int>(10) { i -> i}
 
-    fun getHand() : LiveData<Array<Int>> {
+    fun getMainHand() : LiveData<Array<Int>> {
         return mainHandLiveData
     }
 
@@ -18,7 +20,8 @@ class GameFragmentViewModel : ViewModel() {
     }
 
     fun generateHand() : Array<Int> {
-        return arrayOf(1,2,3,4,5)
+        val mainHand = cardDeck.generateHand()[0]
+        return mainHand.toTypedArray()
     }
 
 
@@ -33,10 +36,8 @@ class GameFragmentViewModel : ViewModel() {
         isCardSelectedArrLiveData.value = arr
     }
 
+    var cardsToBePlayed = mutableListOf<Int>()
 
-
-    // Create the model which contains data for our UI
-    private val cardModel1 = CardDataModel(5, "69", "diamonds")
 
     // Create MutableLiveData which Fragment can subscribe to
     // When this data changes, it triggers the UI to do an update
@@ -44,17 +45,13 @@ class GameFragmentViewModel : ViewModel() {
 
     // Get the updated text from our model and post the value to MainFragment
     fun getUpdatedText() {
-        val updatedText = cardModel1.rank
-        cardTextLiveData.postValue(updatedText)
+//        val updatedText = cardModel1.rank
+//        cardTextLiveData.postValue(updatedText)
     }
 
 
     fun getCorrectImageResourceIdFromCardId(cardId: Int) : Int {
-        return when (cardId) {
-            1 -> R.drawable.card_2c
-            2 -> R.drawable.card_13d
-            else -> R.drawable.card_3c
-        }
+        return cardDeck.deckOfCardsMap[cardId]?.imgResId ?: R.drawable.back_gray
     }
 
 }
